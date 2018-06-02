@@ -29,7 +29,7 @@ USER domu
 COPY . .
 
 # Install
-RUN sudo pip3 install .
+RUN pip3 install .
 
 # Start script
 RUN chmod +x /usr/src/app/dockerStart.sh
