@@ -17,7 +17,7 @@ WORKDIR /usr/src/app
 
 # Add user with sudo privileges
 RUN useradd --home-dir /usr/src/app --no-create-home domu \
-    && usermod -a -G staff domu \
+#    && usermod -a -G staff domu \
     && chown -R domu:domu /conf \
     && chown -R domu:domu /usr/src/app \
     && chown -R domu:domu /certs
@@ -29,7 +29,7 @@ USER domu
 COPY . .
 
 # Install
-RUN pip3 install --user .
+RUN pip3 install --user  --no-warn-script-location .
 
 # Start script
 RUN chmod +x /usr/src/app/dockerStart.sh
