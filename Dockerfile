@@ -16,7 +16,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Add user so we aren't running as root.
-RUN useradd --home-dir /usr/src/node-red --no-create-home domu \
+RUN useradd --home-dir /usr/src/app --no-create-home domu \
     && chown -R domu:domu /conf \
     && chown -R domu:domu /usr/src/app \
     && chown -R domu:domu /certs
