@@ -11,24 +11,25 @@ EXPOSE 5050
 #ENV DASH_URL http://hass:5050
 #ENV EXTRA_CMD -D DEBUG
 
-# Copy appdaemon into image
+# seto WORKDIR
 RUN mkdir -p /usr/src/app
-
-# Add user so we aren't running as root.
-RUN useradd --home-dir /usr/src/app --no-create-home domu \
-    && chown -R domu:domu /conf \
-    && chown -R domu:domu /usr/src/app \
-    && chown -R domu:domu /certs \
-    && chown -R domu:domu /certs
-
-USER domu
-
 WORKDIR /usr/src/app
 
+# Add user with sudo privileges
+RUN useradd --home-dir /usr/src/app --no-create-home domu \
+    && usermod -a -G sudo domu \
+    && chown -R domu:domu /conf \
+    && chown -R domu:domu /usr/src/app \
+    && chown -R domu:domu /certs
+
+# set docker user
+USER domu
+
+# copy image
 COPY . .
 
 # Install
-RUN pip3 install .
+RUN sudo pip3 install .
 
 # Start script
 RUN chmod +x /usr/src/app/dockerStart.sh
