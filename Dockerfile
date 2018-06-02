@@ -13,15 +13,17 @@ EXPOSE 5050
 
 # Copy appdaemon into image
 RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
 
 # Add user so we aren't running as root.
 RUN useradd --home-dir /usr/src/app --no-create-home domu \
     && chown -R domu:domu /conf \
     && chown -R domu:domu /usr/src/app \
+    && chown -R domu:domu /certs \
     && chown -R domu:domu /certs
 
 USER domu
+
+WORKDIR /usr/src/app
 
 COPY . .
 
