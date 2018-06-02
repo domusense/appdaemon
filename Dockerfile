@@ -29,7 +29,7 @@ USER domu
 COPY . .
 
 # Install
-RUN pip3 install . --user appdaemon-rpi
+RUN pip3 install --user .
 
 # Start script
 RUN chmod +x /usr/src/app/dockerStart.sh
