@@ -8,17 +8,17 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-docker run --rm -it -p 5050:5050 \
--v appdaemon_user_data:/conf --name appdaemon \
--e HA_URL="http://192.168.1.18:8123" \
--e HA_KEY="12345678" \
--e DASH_URL="http://192.168.1.18:5050" \
-domu/appdaemon-rpi:latest
-
-#docker run -d -p 5050:5050 \
+#docker run --rm -it -p 5050:5050 \
 #-v appdaemon_user_data:/conf --name appdaemon \
 #-e HA_URL="http://192.168.1.18:8123" \
 #-e HA_KEY="12345678" \
 #-e DASH_URL="http://192.168.1.18:5050" \
 #domu/appdaemon-rpi:latest
+
+docker run -d -p 5050:5050 \
+-v appdaemon_user_data:/conf --name appdaemon \
+-e HA_URL="http://192.168.1.18:8123" \
+-e HA_KEY="12345678" \
+-e DASH_URL="http://192.168.1.18:5050" \
+domu/appdaemon-rpi:latest
 
