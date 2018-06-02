@@ -14,6 +14,15 @@ EXPOSE 5050
 # Copy appdaemon into image
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+
+# Add user so we aren't running as root.
+RUN useradd --home-dir /usr/src/node-red --no-create-home domu \
+    && chown -R domu:domu /conf \
+    && chown -R domu:domu /usr/src/app \
+    && chown -R domu:domu /certs
+
+USER domu
+
 COPY . .
 
 # Install
@@ -21,4 +30,5 @@ RUN pip3 install .
 
 # Start script
 RUN chmod +x /usr/src/app/dockerStart.sh
+
 CMD [ "./dockerStart.sh" ]
