@@ -7,3 +7,7 @@ Assistant](https://home-assistant.io/) home automation software. It also provide
 suitable for wall mounted tablets.
 
 For full instructions on installation and use check out the [AppDaemon Project Documentation](http://appdaemon.readthedocs.io).
+
+Usage
+===========
+git clone https://github.com/domusense/appdaemon && cd appdaemon && sh build-rpi.sh
