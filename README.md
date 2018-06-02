@@ -10,4 +10,4 @@ For full instructions on installation and use check out the [AppDaemon Project D
 
 Usage
 ===========
-git clone https://github.com/domusense/appdaemon-rpi && cd appdaemon && sh build-rpi.sh
+git clone https://github.com/domusense/appdaemon-rpi && cd appdaemon-rpi && sh build-rpi.sh
