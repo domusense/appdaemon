@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM arm32v7/python:3.6.5-stretch
 
 VOLUME /conf
 VOLUME /certs
