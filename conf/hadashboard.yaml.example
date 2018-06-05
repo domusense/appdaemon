@@ -1,0 +1,13 @@
+log:
+  logfile: STDOUT
+  errorfile: STDERR
+appdaemon:
+  threads: 10
+  plugins:
+    HASS:
+      type: hass
+      ha_url:
+      ha_key:
+      
+hadashboard:
+  dash_url: 
