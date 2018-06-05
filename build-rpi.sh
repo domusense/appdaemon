@@ -15,10 +15,11 @@ fi
 #-e DASH_URL="http://192.168.1.18:5050" \
 #domu/appdaemon-rpi:latest
 
-docker run -d -p 5050:5050 \
--v appdaemon_user_data:/conf --name appdaemon \
--e HA_URL="http://192.168.1.18:8123" \
--e HA_KEY="12345678" \
--e DASH_URL="http://192.168.1.18:5050" \
-domu/appdaemon-rpi:latest
+docker run --name=appdaemon -d -p 5050:5050 \
+  --restart=always \
+  -e HA_URL="http://172.18.0.3:8123" \
+  -e HA_KEY="12345678" \
+  -e DASH_URL="http://0.0.0.0:5050" \
+  -v /appdaemon/conf:/conf \
+  domu/appdaemon-rpi:latest
 
