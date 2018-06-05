@@ -5,7 +5,7 @@ CONF_SRC=/usr/src/app/conf
 
 # if configuration file doesn't exist, copy the default
 if [ ! -f $CONF/appdaemon.yaml ]; then
-  cp $CONF_SRC/appdaemon.yaml.example $CONF/appdaemon.yaml
+  cp $CONF_SRC/hadashboard.yaml.example $CONF/appdaemon.yaml
 fi
 
 # if apps folder doesn't exist, copy the default
