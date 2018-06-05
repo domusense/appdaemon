@@ -8,6 +8,9 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+sudo mkdir /appdaemon/
+sudo mkdir /appdaemon/conf
+
 #docker run --rm -it -p 5050:5050 \
 #-v appdaemon_user_data:/conf --name appdaemon \
 #-e HA_URL="http://192.168.1.18:8123" \
