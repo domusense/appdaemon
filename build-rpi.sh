@@ -20,8 +20,8 @@ sudo mkdir /appdaemon/conf
 
 docker run --name=appdaemon -d -p 5050:5050 \
   --restart=always \
-  -e HA_URL="http://172.18.0.3:8123" \
-  -e HA_KEY="12345678" \
+  -e HA_URL="http://192.168.1.26:8123" \
+  -e HA_KEY="q1w2e3r4" \
   -e DASH_URL="http://0.0.0.0:5050" \
   -v /appdaemon/conf:/conf \
   domu/appdaemon-rpi:latest
